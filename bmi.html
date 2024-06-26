@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMICalc- Aida Adriana Binti Nor Sabirin</title>
+<style>
+    body {
+        font-family: 'Lato', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #E5DDC5;
+        color: #333;
+        text-align: center;
+    }
+    header {
+        background-color: #F1EEDC;
+        color: #A79277;
+        padding: 20px 0;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    nav {
+        background-color: #F1EEDC;
+        padding: 10px 0;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    nav a {
+        color: #8C6A5D;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 1.1em;
+        font-weight: bold;
+    }
+    nav a:hover {
+        text-decoration: underline;
+    }
+    section {
+        padding: 40px;
+        margin: 20px auto;
+        background-color: white;
+        border-radius: 10px;
+        max-width: 1000px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    fieldset {
+        border: none;
+        padding: 0;
+    }
+    label {
+        font-weight: normal;
+        display: block;
+        margin: 10px 0 5px;
+    }
+    input {
+        width: calc(100% - 20px);
+        padding: 8px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        margin-left: 10px;
+    }
+    button {
+        padding: 10px;
+        background-color: #A9B388;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    button:hover {
+        background-color: #C4D7B2;
+    }
+    .result {
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <h1>BMI Calculator</h1>
+    </header>
+    
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="resume.html">Resume</a>
+        <a href="photo.html">Photos</a>
+        <a href="comment.html">Comment</a>
+		<a href="bmi.html">BMICalc</a>
+    </nav>
+    <section>
+	<fieldset>
+  <label for="weight">Weight (in kg):</label>
+  <input type="text" id="weight" placeholder="Enter your weight">
+  <br>
+  <label for="height">Height (in meters):</label>
+  <input type="text" id="height" placeholder="Enter your height">
+  <br>
+  <br>
+  <button onclick="calculate();">Get your BMI</button>
+</fieldset>
+
+<p class="result">
+  Your BMI is <span id="score"></span>. <br>
+  Your body type is <span id="type"></span>.
+</p>
+
+<script>
+function calculate() {
+  var weight = document.getElementById("weight").value;
+  var height = document.getElementById("height").value;
+  // Divide height by 100 to convert from meters to centimeters
+  var heightInMeters = height / 100;
+  var bmi = weight / (heightInMeters * heightInMeters);
+
+  var bmiText;
+  if (bmi < 18) {
+    bmiText = "Underweight";
+  } else if (bmi >= 18 && bmi < 25) {
+    bmiText = "Normal";
+  } else if (bmi >= 25 && bmi < 30) {
+    bmiText = "Overweight";
+  } else {
+    bmiText = "Obese";
+  }
+
+  document.getElementById("score").innerHTML = bmi.toFixed(2); // Round BMI to 2 decimal places
+  document.getElementById("type").innerHTML = bmiText;
+}
+</script>
+</section>
+</body>
+</html>
+</head>
+<body>
